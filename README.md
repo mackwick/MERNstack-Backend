@@ -1,8 +1,8 @@
-# NAME TBD - Project 3 MERN-Stack App
+# Study Buddy (working title) - Project 3 MERN-Stack App
 
 ## Overview
 
-NAME TBD is a web application that allows users to create decks of flashcards to help them study anything from software development to foreign languages to trivia.
+Study Buddy is a web application that allows users to create decks of flashcards to study anything from software development to foreign languages to trivia.
 
 ## React Routes
 
@@ -22,6 +22,4 @@ NAME TBD is a web application that allows users to create decks of flashcards to
 
 ## Wireframes
 
-### Web Mockups
-
-### Mobile Mockups
+![Study Buddy Wirefram](hhttps://i.imgur.com/99u6e4v.jpeg)
