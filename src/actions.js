@@ -37,6 +37,48 @@ export const updateDeckAction = async ({ request, params }) => {
 
 //deleteDeckAction
 export const deleteDeckAction = async ({ params }) => {
+  await fetch(`${URL}/deck/${params.id}`, {
+    method: "delete",
+  });
+  return redirect("/");
+};
+
+//createCardAction
+export const createCardAction = async ({ request, params }) => {
+  const formData = await request.formData();
+  const newCard = {
+    question: formData.get("question"),
+    answer: formData.get("answer"),
+    deckId: params.id,
+  };
+  await fetch(`${URL}/card/${params.id}`, {
+    method: "post",
+    headers: {
+      "Content-Type": "application.json",
+    },
+    body: JSON.stringify(newCard),
+  });
+};
+
+//updateCardAction
+export const updateCardAction = async ({ request, params }) => {
+  const formData = await request.formData();
+  const updatedCard = {
+    question: formData.get("question"),
+    answer: formData.get("answer"),
+    deckId: params.id,
+  };
+  await fetch(`${URL}/card/${params.id}`, {
+    method: "put",
+    headers: {
+      "Content-Type": "application.json",
+    },
+    body: JSON.stringify(updatedCard),
+  });
+};
+
+//deleteCardAction
+export const deleteCardAction = async ({ params }) => {
   await fetch(`${URL}/card/${params.id}`, {
     method: "delete",
   });
