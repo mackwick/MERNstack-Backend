@@ -51,7 +51,7 @@ export const createCardAction = async ({ request, params }) => {
     answer: formData.get("answer"),
     deckId: params.id,
   };
-  await fetch(`${URL}/card/${params.id}`, {
+  await fetch(`${URL}/card/${params.deckId}`, {
     method: "post",
     headers: {
       "Content-Type": "application.json",
@@ -68,7 +68,7 @@ export const updateCardAction = async ({ request, params }) => {
     answer: formData.get("answer"),
     deckId: params.id,
   };
-  await fetch(`${URL}/card/${params.id}`, {
+  await fetch(`${URL}/card/${params.deckId}/${params.id}`, {
     method: "put",
     headers: {
       "Content-Type": "application.json",
