@@ -1,4 +1,4 @@
-import { useLoaderData, } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 
 const Landing = () => {
   const deck = useLoaderData();
@@ -12,9 +12,12 @@ const Landing = () => {
         <div className="decks-container">
           {deck.map((set) => {
             return (
-              <div key={set._id} className="deck">
-                <h3>{set.name}</h3>
-              </div>
+              // Wraping the deck div in a Link component
+              <Link to={`/deck/${set._id}`} key={set._id} style={{ textDecoration: 'none' }}>
+                <div className="deck">
+                  <h3>{set.name}</h3>
+                </div>
+              </Link>
             );
           })}
         </div>
