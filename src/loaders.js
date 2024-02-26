@@ -11,3 +11,10 @@ export const cardLoader = async ({ params }) => {
   const cards = await response.json();
   return cards;
 };
+
+// New function to fetch details for a specific card
+export const cardDetailsLoader = async (cardId) => {
+  const response = await fetch(`${URL}/card/${cardId}`);
+  const cardDetails = await response.json();
+  return cardDetails;
+};
