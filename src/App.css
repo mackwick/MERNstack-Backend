@@ -1,15 +1,15 @@
-.App {
+/* .App {
   text-align: center;
 }
 
 .light {
-  background-color: #fff;
-  color: #000;
+  background-color: rgb(55, 225, 169);
+  color: #fff;
 }
 
 .dark {
-  background-color: #333;
-  color: #fff;
+  background-color: rgb(55, 225, 169);
+  color: #000;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -17,8 +17,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-
 
 .App-link {
   color: #61dafb;
@@ -31,5 +29,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
+} */
