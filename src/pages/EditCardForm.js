@@ -7,13 +7,20 @@ const EditCardForm = () => {
     const [card, setCard] = useState({ question: '', answer: '' });
 
     useEffect(() => {
-        const fetchCard = async () => {
-            const response = await fetch(`${process.env.REACT_APP_URL}/card/${cardId}`);
-            const data = await response.json();
-            setCard(data);
+        const fetchDeckAndCard = async () => {
+            // Adjusted to fetch the deck first
+            const response = await fetch(`${process.env.REACT_APP_URL}/deck/${deckId}`);
+            const deckData = await response.json();
+
+            // Find the specific card within the deck's cards array
+            const cardData = deckData.cards.find(card => card._id === cardId);
+
+            // Set the found card as the current card state
+            if (cardData) setCard(cardData);
         };
-        fetchCard();
-    }, [cardId]);
+
+        fetchDeckAndCard();
+    }, [cardId, deckId]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,6 +32,7 @@ const EditCardForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // Assuming the backend expects the card to be updated within a specific deck
         await fetch(`${process.env.REACT_APP_URL}/card/${deckId}/${cardId}`, {
             method: 'PUT',
             headers: {

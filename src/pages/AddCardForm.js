@@ -13,7 +13,7 @@ const AddCardForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await fetch(`${process.env.REACT_APP_URL}/card/${deckId}`, { // Corrected URL
+        await fetch(`${process.env.REACT_APP_URL}/card/${deckId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ const AddCardForm = () => {
             body: JSON.stringify(card),
         }).then(response => {
             if (response.ok) {
-                navigate(`/deck/${deckId}/manage-cards`, { state: { cardAdded: true } });
+                navigate(`/deck/${deckId}`); // redirection to deck page after update
             } else {
                 // Handle server errors or invalid responses
                 alert("An error occurred. Please try again.");
