@@ -1,13 +1,16 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = ({ toggleTheme }) => {
-    return (
+  return (
     <div className="header">
-    <h1>Study Buddy</h1>
+      <Link to={`/`}>
+        <h1 className="mainTitle">Study Buddy</h1>
+      </Link>
 
-    <button onClick={toggleTheme}>Switch Theme</button>
+      <button onClick={toggleTheme}>Switch Theme</button>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

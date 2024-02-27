@@ -1,41 +1,74 @@
-html body {
-  height: 100%;
-  margin: 0;
+:root {
+  --primary-green: #1dc38c;
+  --primary-dark: #3c493f;
+  --primary-light: #f1dede;
 }
-
 
 body {
+  font-family: "Roboto Condensed", sans-serif;
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primary-green);
+  color: var(--primary-light);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+a,
+button {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+} */
+
+.header {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-light);
+  text-align: center;
+  width: 100%;
+  color: var(--primary-green);
+  align-items: center;
+}
+
+.header .mainTitle {
+  font-size: 60px;
+  margin-left: 10px;
+}
+
+.header button {
+  margin-right: 10px;
 }
 
 .footer {
-  display: block;
-  background-color: rgb(55, 225, 169);
-  text-align: center;
-  margin: 5px;
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  padding-bottom: 1px;
-  color: rgb(51, 51, 51);
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
 }
 
-.header {
-  display: block;
-  background-color: rgb(50, 199, 149);
+.footer > p {
+  padding: 0 10px;
+}
+
+.title-container {
   text-align: center;
-  width: 100%;
-  color: rgb(255, 255, 255);
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 20px;
+  color: var(--primary-dark);
+  font-size: large;
 }
 
 .decks-container {
@@ -49,15 +82,9 @@ code {
   text-align: center;
 }
 
-.title-container {
-  text-align: center;
-  margin-bottom: 20px;
-  color: rgb(51, 51, 51);
-}
-
 .deck {
   display: flex;
-  background-color: #ffffff;
+  background-color: var(--primary-light);
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
@@ -67,11 +94,7 @@ code {
   text-align: center;
   align-items: center;
   justify-content: center;
-  color: rgb(51, 51, 51);
-}
-
-.deck, .deck h3 {
-  color: inherit;
+  color: var(--primary-dark);
 }
 
 .cards-container {
@@ -126,7 +149,8 @@ button {
   transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
