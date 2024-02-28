@@ -7,8 +7,13 @@ const Header = ({ toggleTheme }) => {
       <Link to={`/`}>
         <h1 className="mainTitle">Study Buddy</h1>
       </Link>
-
-      <button onClick={toggleTheme}>Switch Theme</button>
+      <div className="toggle-action">
+        <input type="checkbox" className="checkbox" />
+        <label for="checkbox" id="switch-button" onClick={toggleTheme}>
+          {/* <i class="fa-regular fa-sun"></i>
+          <i class="fa-regular fa-moon"></i> */}
+        </label>
+      </div>
     </div>
   );
 };
