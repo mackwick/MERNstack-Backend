@@ -9,7 +9,7 @@ const Landing = () => {
   return (
     <div className="landing-container">
       <div className="title-container">
-        <h1>Decks</h1>
+        <h1 className="page-heading">Flashcard Decks</h1>
         <button onClick={() => setEditMode(!editMode)}>
           {editMode ? "Exit Edit Mode" : "Edit Mode"}
         </button>
