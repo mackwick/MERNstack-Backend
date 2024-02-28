@@ -31,8 +31,14 @@ const Deckshow = () => {
   };
 
   return (
-    <div className="basic-mode">
-      <h1>{deck.name}</h1>
+    <div className="show-container">
+      <div className="title-container">
+        <h1>{deck.name}</h1>
+        <button onClick={() => navigate(-1)}>Back to Decks</button>
+        <button onClick={toggleStudyMode}>
+          {studyMode ? "Exit Study Mode" : "Study Mode"}
+        </button>
+      </div>
       {studyMode ? (
         <>
           <Card
@@ -52,10 +58,6 @@ const Deckshow = () => {
           ))}
         </div>
       )}
-      <button onClick={() => navigate(-1)}>Back to Decks</button>
-      <button onClick={toggleStudyMode}>
-        {studyMode ? "Exit Study Mode" : "Study Mode"}
-      </button>
     </div>
   );
 };
