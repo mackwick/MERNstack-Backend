@@ -380,44 +380,36 @@ form button:hover {
   margin: 10px 0;
 }
 
-.card-action-links {
-  display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-}
-
-/* Base styles for all action links */
-.card-action-links a {
+.card-action-links a,
+.card-action-links button {
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 5px 10px; /* Adjust padding if needed to control the size */
   border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px; /* Consistent width for both buttons */
+  height: 30px; /* Consistent height for both buttons */
+  text-align: center;
+  font-size: 14px; /* Adjust font size for fitting the text within the button */
 }
 
-/* Specific styles for 'Edit' link */
+/* Adjust background and text color for 'Edit' link/button */
 .card-action-links .edit-link {
-  background-color: #eec17f; /* Specific background color for 'Edit' */
+  background-color: #eec17f;
   color: var(--primary-dark);
 }
 
-/* Specific styles for 'Delete' link */
+/* Adjust background and text color for 'Delete' link/button */
 .card-action-links .delete-link {
-  background-color: #f14668; /* Specific background color for 'Delete' */
+  background-color: #f14668;
   color: var(--primary-light);
 }
 
-/* Hover state for 'Edit' link */
-.card-action-links .edit-link:hover {
-  background-color: darken(#eec17f, 20%); /* Darken the 'Edit' background color on hover */
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  transform: scale(1.05);
-}
-
-/* Hover state for 'Delete' link */
-.card-action-links .delete-link:hover {
-  background-color: darken(#f14668, 10%); /* Darken the 'Delete' background color on hover */
-  transition: background-color 0.3s ease, transform 0.2s ease;
+/* Hover state for both links/buttons to scale */
+.card-action-links a:hover,
+.card-action-links button:hover {
   transform: scale(1.05);
 }
 
@@ -485,7 +477,7 @@ form button:hover {
 }
 
 .edit-card-form button:hover {
-  background-color: darken(var(--primary-green), 10%);
+  background-color: #1c846c;
 }
 
 /*MANAGE CARDS*/
