@@ -126,6 +126,19 @@ button {
   margin-block-start: 0;
 }
 
+.landing-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+Link,
+.clickable {
+  cursor: pointer;
+}
+
 /*DECK INDEX*/
 
 .decks-container {
@@ -233,4 +246,20 @@ button {
 
 .card-back {
   transform: rotateY(0.5turn);
+}
+
+/*MANAGE CARDS*/
+
+.editCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 400px;
+  height: 300px;
+  margin: 15px;
+}
+
+.manage-links {
+  color: var(--primary-green);
+  padding-top: 20px;
 }

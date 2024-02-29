@@ -79,7 +79,7 @@ export const updateCardAction = async ({ request, params }) => {
 
 //deleteCardAction
 export const deleteCardAction = async ({ params }) => {
-  await fetch(`${URL}/card/${params.id}`, {
+  await fetch(`${URL}/card/${params.deckId}/${params.id}`, {
     method: "delete",
   });
   return redirect("/");
