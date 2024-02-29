@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import studyBuddyAudio from "./audio/study-buddy.wav";
 
 const Header = ({ toggleTheme }) => {
+  const playAudio = () => {
+    const audio = new Audio(studyBuddyAudio);
+    audio.play();
+  }
   return (
     <div className="header">
-      <Link to={`/`}>
+      <Link to={`/`} onClick={playAudio}>
         <h1 className="mainTitle">Study Buddy</h1>
       </Link>
       <div className="toggle-action">
