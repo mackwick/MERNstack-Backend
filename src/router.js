@@ -25,18 +25,27 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-    <Route index element={<Landing />} loader={deckLoader} />
-    <Route path="deck/:id" element={<Deckshow />} loader={cardLoader} />
-    <Route path="create/deck" element={<AddDeckForm />} /> // Add new deck route
-    <Route path="create/card/:deckId" element={<AddCardForm />} />
-    <Route path="edit/deck/:id" element={<EditDeckForm />} />
-    <Route path="edit/card/:deckId/:cardId" element={<EditCardForm />} />
-    <Route path="update/:id" action={updateDeckAction} />
-    <Route path="update/card/:deckId/:cardId" action={updateCardAction} />
-    <Route path="delete/:id" action={deleteDeckAction} />
-    <Route path="delete/card/:deckId/:cardId" action={deleteCardAction} />
-    <Route path="deck/:id/manage-cards" element={<ManageCards />} />
-  </Route>
+      <Route index element={<Landing />} loader={deckLoader} />
+      <Route path="deck/:id" element={<Deckshow />} loader={cardLoader} />
+      <Route
+        path="create"
+        element={<AddDeckForm />}
+        action={createDeckAction}
+      />
+      <Route path="edit/deck/:id" element={<EditDeckForm />} />
+      <Route path="update/:id" action={updateDeckAction} />
+      <Route path="delete/:id" action={deleteDeckAction} />
+      <Route path="deck/:id/manage-cards" element={<ManageCards />} />
+
+      <Route
+        path="create/card/:deckId"
+        element={<AddCardForm />}
+        action={createCardAction}
+      />
+      <Route path="edit/card/:deckId/:cardId" element={<EditCardForm />} />
+      <Route path="update/card/:deckId/:cardId" action={updateCardAction} />
+      <Route path="delete/card/:deckId/:cardId" action={deleteCardAction} />
+    </Route>
   )
 );
 

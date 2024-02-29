@@ -30,12 +30,18 @@ const Landing = () => {
     <div className="landing-container">
       <div className="title-container">
         <h1 className="page-heading">Flashcard Decks</h1>
-        <button onClick={() => setEditMode(!editMode)}>
-          {editMode ? "Exit Edit Mode" : "Edit Mode"}
-        </button>
-        {editMode && (
-          <Link to="/create/deck" className="add-deck-button">Add New Deck</Link>
-        )}
+        <div className="landing-actions">
+          <div className="clickable" onClick={() => setEditMode(!editMode)}>
+            {editMode ? "Exit Edit Mode" : "Edit Mode"}
+          </div>
+          <div>
+            {" "}
+            <pre>|</pre>
+          </div>
+          <Link to="/create" className="add-deck-button">
+            Add Deck
+          </Link>
+        </div>
       </div>
 
       <div className="decks-container">
@@ -48,7 +54,9 @@ const Landing = () => {
               {editMode && (
                 <i
                   className="fa-solid fa-gear"
-                  onClick={() => setShowDropdown(showDropdown === deck._id ? null : deck._id)}
+                  onClick={() =>
+                    setShowDropdown(showDropdown === deck._id ? null : deck._id)
+                  }
                 ></i>
               )}
             </div>
@@ -59,11 +67,18 @@ const Landing = () => {
                 </Link>
                 <button
                   className="dropdown-item"
+           
                   onClick={() => deleteDeck(deck._id)}
                 >
                   <i className="fa-solid fa-trash"></i> Delete Deck
                 </button>
-                <Link to={`/deck/${deck._id}/manage-cards`} className="dropdown-item">
+                
+                
+                <Link
+                  to={`/deck/${deck._id}/manage-cards`}
+                  className="dropdown-item"
+                >
+
                   Manage Cards
                 </Link>
               </div>

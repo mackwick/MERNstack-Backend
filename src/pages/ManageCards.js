@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams, Link, useLocation } from "react-router-dom";
 
 const ManageCards = () => {
-    const { id: deckId } = useParams();
-    const location = useLocation();
-    const [cards, setCards] = useState([]);
-
+  const { id: deckId } = useParams();
+  const location = useLocation();
+  const [cards, setCards] = useState([]);
+  
     useEffect(() => {
         const fetchDeck = async () => {
             const response = await fetch(`${process.env.REACT_APP_URL}/deck/${deckId}`);
@@ -28,8 +28,8 @@ const ManageCards = () => {
                         <p>Question: {card.question}</p>
                         <p>Answer: {card.answer}</p>
                                 <div className="card-action-links">
-                                <Link to={`/edit/card/${deckId}/${card._id}`} className="edit-link">Edit</Link>
-                                <Link to={`/delete/card/${deckId}/${card._id}`} className="delete-link">Delete</Link>
+                                <Link to={``/edit/card/${card.deckId}/${card._id}``} className="edit-link">Edit</Link>
+                                <Link to={`/delete/card/${card.deckId}/${card._id}`} className="delete-link">Delete</Link>
                                 </div>
                     </div>
                 ))

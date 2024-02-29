@@ -166,6 +166,18 @@ button {
   margin-top: 2rem;
 }
 
+.landing-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+Link,
+.clickable {
+  cursor: pointer;
+}
 
 /*DECK INDEX*/
 
@@ -476,3 +488,18 @@ form button:hover {
   background-color: darken(var(--primary-green), 10%);
 }
 
+/*MANAGE CARDS*/
+
+/*.editCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 400px;
+  height: 300px;
+  margin: 15px;
+}
+
+.manage-links {
+  color: var(--primary-green);
+  padding-top: 20px;
+}*/
