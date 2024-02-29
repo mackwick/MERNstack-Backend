@@ -1,10 +1,30 @@
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Landing = () => {
   const decks = useLoaderData();
+  const navigate = useNavigate();
   const [editMode, setEditMode] = useState(false);
   const [showDropdown, setShowDropdown] = useState(null); // To control which dropdown is visible
+
+  // Function to delete a deck
+  const deleteDeck = async (deckId) => {
+    const isConfirmed = window.confirm("Are you sure you want to delete this deck?");
+    if (isConfirmed) {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_URL}/deck/${deckId}`, {
+          method: 'DELETE',
+        });
+        if (!response.ok) throw new Error('Network response was not ok.');
+        // Remove the deck from the UI
+        const updatedDecks = decks.filter(deck => deck._id !== deckId);
+        navigate(0); // Reloads the current page to reflect the deletion
+      } catch (error) {
+        console.error('Failed to delete the deck:', error);
+        alert('Failed to delete the deck.');
+      }
+    }
+  };
 
   return (
     <div className="landing-container">
@@ -47,12 +67,13 @@ const Landing = () => {
                 </Link>
                 <button
                   className="dropdown-item"
-                  onClick={() => {
-                    /* handle delete deck */
-                  }}
+           
+                  onClick={() => deleteDeck(deck._id)}
                 >
                   <i className="fa-solid fa-trash"></i> Delete Deck
                 </button>
+                
+                
                 <Link
                   to={`/deck/${deck._id}/manage-cards`}
                   className="dropdown-item"

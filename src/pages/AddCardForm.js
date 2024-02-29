@@ -21,7 +21,8 @@ const AddCardForm = () => {
             body: JSON.stringify(card),
         }).then(response => {
             if (response.ok) {
-                navigate(`/deck/${deckId}`); // redirection to deck page after update
+                // Reset the card state to clear the form for the next card
+                setCard({ question: '', answer: '' });
             } else {
                 // Handle server errors or invalid responses
                 alert("An error occurred. Please try again.");
@@ -31,6 +32,11 @@ const AddCardForm = () => {
             console.error("Network error:", error);
             alert("An error occurred. Please check your network and try again.");
         });
+    };
+
+    // Function to handle clicking the "Done Adding Cards" button
+    const handleDone = () => {
+        navigate(`/deck/${deckId}`); // Navigate away when done
     };
 
     return (
@@ -45,6 +51,7 @@ const AddCardForm = () => {
                 <textarea name="answer" value={card.answer} onChange={handleChange} required />
             </label>
             <button type="submit">Add Card</button>
+            <button type="button" onClick={handleDone} style={{marginLeft: "10px"}}>Done Adding Cards</button>
         </form>
     );
 };
