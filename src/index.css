@@ -1,9 +1,44 @@
 /*PRIMARY STYLING*/
 
+/* Light theme variables*/
 :root {
   --primary-green: #1dc38c;
   --primary-dark: #3c493f;
   --primary-light: #f1dede;
+}
+
+/* Dark theme variables */
+.dark-theme {
+  --primary-green: #135c4b;
+  --primary-dark: #f1f1f1;
+  --primary-light: #2b2b2b;
+}
+
+/* Dark theme adjustments for text input and textarea fields */
+.dark-theme form input[type="text"],
+.dark-theme form textarea {
+  color: var(--primary-light);
+  background-color: var(--primary-dark);
+  border-color: var(--primary-light);
+}
+
+/* Dark Theme Adjustments for EditCardForm */
+.dark-theme .edit-card-form textarea,
+.dark-theme .edit-card-form input[type="text"] {
+    color: var(--primary-light);
+    background-color: var(--primary-dark);
+    border-color: var(--primary-light);
+}
+
+.dark-theme .edit-card-form label {
+    color: var(--primary-light); /* Ensures label text is visible */
+}
+
+
+/* Toggle Switch*/
+.dark-theme #switch-button {
+  background-color: var(--primary-dark);
+  box-shadow: inset 0px 5px 15px var(--primary-light), inset 0px -5px 15px var(--primary-dark);
 }
 
 *,
@@ -46,17 +81,21 @@ button {
 .header {
   padding: 20px 10px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   background-color: var(--primary-light);
-  text-align: center;
+  padding: 20px 10px;
   width: 100%;
   color: var(--primary-green);
-  align-items: center;
+  font-size: 30px;
 }
 
-.header .mainTitle {
-  font-size: 60px;
+.mainTitle {
+  flex-grow: 1;
+  text-align: center;
 }
+
+
 
 /*LIGHT/DARK MODE TOGGLE FEATURE*/
 
@@ -115,7 +154,7 @@ button {
 .page-heading {
   text-align: center;
   margin-left: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   color: var(--primary-light);
   font-size: large;
 }
@@ -124,12 +163,14 @@ button {
   font-size: 36px;
   padding: 0;
   margin-block-start: 0;
+  margin-top: 2rem;
 }
+
 
 /*DECK INDEX*/
 
 .decks-container {
-  padding-top: 2vh;
+  padding-top: 0.5vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -137,6 +178,7 @@ button {
   justify-content: center;
   width: 100%;
   text-align: center;
+  margin-bottom: 5rem;
 }
 
 .deck {
@@ -154,12 +196,66 @@ button {
   color: var(--primary-dark);
 }
 
+/* Edit Deck Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+  color: var(--primary-dark);
+  text-align: center;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+form input[type="text"],
+form textarea {
+  padding: 10px;
+  border: 2px solid var(--primary-dark);
+  border-radius: 5px;
+  font-family: inherit;
+  color: var(--primary-dark);
+}
+
+form input[type="checkbox"] {
+  margin-top: 5px;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: darken(var(--primary-green), 10%);
+}
+
+
 /*CARD SHOW*/
 
 .show-container {
   width: 100%;
   text-align: center;
   margin: 0 auto;
+  justify-items: center;
 }
 
 .cards-container {
@@ -168,6 +264,7 @@ button {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-bottom: 5rem;
 }
 
 .flashcard {
@@ -178,6 +275,10 @@ button {
 }
 
 .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
   text-align: center;
@@ -198,6 +299,9 @@ button {
 
 .card-front,
 .card-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -234,3 +338,141 @@ button {
 .card-back {
   transform: rotateY(0.5turn);
 }
+
+/* Manage Cards Styling */
+.manage-cards {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.manage-cards h2 {
+  text-align: center;
+}
+
+.card-item {
+  border-bottom: 1px solid var(--primary-dark);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.card-item:last-child {
+  border-bottom: none;
+}
+
+.card-item p {
+  margin: 10px 0;
+}
+
+.card-action-links {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+/* Base styles for all action links */
+.card-action-links a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+/* Specific styles for 'Edit' link */
+.card-action-links .edit-link {
+  background-color: #eec17f; /* Specific background color for 'Edit' */
+  color: var(--primary-dark);
+}
+
+/* Specific styles for 'Delete' link */
+.card-action-links .delete-link {
+  background-color: #f14668; /* Specific background color for 'Delete' */
+  color: var(--primary-light);
+}
+
+/* Hover state for 'Edit' link */
+.card-action-links .edit-link:hover {
+  background-color: darken(#eec17f, 20%); /* Darken the 'Edit' background color on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  transform: scale(1.05);
+}
+
+/* Hover state for 'Delete' link */
+.card-action-links .delete-link:hover {
+  background-color: darken(#f14668, 10%); /* Darken the 'Delete' background color on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  transform: scale(1.05);
+}
+
+
+.add-card-button {
+  background-color: #3cbd95;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 1px solid transparent;
+  font-weight: bold;
+}
+
+.add-card-button:hover {
+  background-color: darken(#4CAF50, 10%);
+  transform: scale(1.05);
+  border-color: white;
+}
+
+
+/* Edit Card Form Styling */
+.edit-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-card-form h2 {
+  text-align: center;
+  color: var(--primary-dark);
+}
+
+.edit-card-form label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--primary-dark);
+}
+
+.edit-card-form textarea,
+.edit-card-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid var(--primary-dark);
+  border-radius: 5px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.edit-card-form button {
+  padding: 10px 20px;
+  background-color: var(--primary-green);
+  color: var(--primary-light);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-card-form button:hover {
+  background-color: darken(var(--primary-green), 10%);
+}
+

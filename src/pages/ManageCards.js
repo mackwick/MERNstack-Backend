@@ -8,11 +8,10 @@ const ManageCards = () => {
 
     useEffect(() => {
         const fetchDeck = async () => {
-            // Fetch the deck data, which includes the cards
             const response = await fetch(`${process.env.REACT_APP_URL}/deck/${deckId}`);
             if(response.ok) {
                 const data = await response.json();
-                setCards(data.cards); // Set cards from the deck's cards array
+                setCards(data.cards);
             } else {
                 console.error("Failed to fetch deck with cards");
             }
@@ -21,22 +20,23 @@ const ManageCards = () => {
     }, [deckId, location.state?.cardAdded]);
 
     return (
-        <div>
+        <div className="manage-cards">
             <h2>Manage Cards</h2>
             {cards.length > 0 ? (
                 cards.map(card => (
-                    <div key={card._id}>
+                    <div key={card._id} className="card-item">
                         <p>Question: {card.question}</p>
                         <p>Answer: {card.answer}</p>
-                        <Link to={`/edit/card/${deckId}/${card._id}`}>Edit</Link>
-                        {' | '}
-                        <Link to={`/delete/card/${deckId}/${card._id}`}>Delete</Link>
+                                <div className="card-action-links">
+                                <Link to={`/edit/card/${deckId}/${card._id}`} className="edit-link">Edit</Link>
+                                <Link to={`/delete/card/${deckId}/${card._id}`} className="delete-link">Delete</Link>
+                                </div>
                     </div>
                 ))
             ) : (
                 <p>No cards available. Add some!</p>
             )}
-            <Link to={`/create/card/${deckId}`}>Add New Card</Link>
+            <Link to={`/create/card/${deckId}`} className="add-card-button">Add New Card</Link>
         </div>
     );
 };
