@@ -57,6 +57,7 @@ const Landing = () => {
                   to={`/deck/${deck._id}/manage-cards`}
                   className="dropdown-item"
                 >
+
                   Manage Cards
                 </Link>
               </div>
