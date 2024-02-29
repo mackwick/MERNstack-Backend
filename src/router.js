@@ -20,7 +20,6 @@ import {
   createCardAction,
   updateCardAction,
   deleteCardAction,
-  addDeckAction,
 } from "./actions";
 
 const router = createBrowserRouter(
@@ -31,17 +30,21 @@ const router = createBrowserRouter(
       <Route
         path="create"
         element={<AddDeckForm />}
-        action={addDeckAction}
-      />{" "}
-      // Add new deck route
-      <Route path="create/card/:deckId" element={<AddCardForm />} />
+        action={createDeckAction}
+      />
       <Route path="edit/deck/:id" element={<EditDeckForm />} />
-      <Route path="edit/card/:deckId/:cardId" element={<EditCardForm />} />
       <Route path="update/:id" action={updateDeckAction} />
-      <Route path="update/card/:deckId/:cardId" action={updateCardAction} />
       <Route path="delete/:id" action={deleteDeckAction} />
-      <Route path="delete/card/:deckId/:cardId" action={deleteCardAction} />
       <Route path="deck/:id/manage-cards" element={<ManageCards />} />
+
+      <Route
+        path="create/card/:deckId"
+        element={<AddCardForm />}
+        action={createCardAction}
+      />
+      <Route path="edit/card/:deckId/:cardId" element={<EditCardForm />} />
+      <Route path="update/card/:deckId/:cardId" action={updateCardAction} />
+      <Route path="delete/card/:deckId/:cardId" action={deleteCardAction} />
     </Route>
   )
 );
