@@ -25,21 +25,29 @@
 /* Dark Theme Adjustments for EditCardForm */
 .dark-theme .edit-card-form textarea,
 .dark-theme .edit-card-form input[type="text"] {
-    color: var(--primary-light);
-    background-color: var(--primary-dark);
-    border-color: var(--primary-light);
+  color: var(--primary-light);
+  background-color: var(--primary-dark);
+  border-color: var(--primary-light);
 }
 
 .dark-theme .edit-card-form label {
-    color: var(--primary-light); /* Ensures label text is visible */
+  color: var(--primary-light); /* Ensures label text is visible */
 }
 
+/*Dark Theme Header and links*/
+.dark-theme .mainTitle,
+.dark-theme .title-container,
+.dark-theme a,
+.dark-theme .page-heading {
+  color: var(--primary-dark);
+}
 
 /* Toggle Switch*/
-.dark-theme #switch-button {
+/* .dark-theme #switch-button {
   background-color: var(--primary-dark);
-  box-shadow: inset 0px 5px 15px var(--primary-light), inset 0px -5px 15px var(--primary-dark);
-}
+  box-shadow: inset 0px 5px 15px var(--primary-light),
+    inset 0px -5px 15px var(--primary-dark);
+} */
 
 *,
 *::before,
@@ -95,8 +103,6 @@ button {
   text-align: center;
 }
 
-
-
 /*LIGHT/DARK MODE TOGGLE FEATURE*/
 
 .checkbox {
@@ -105,34 +111,15 @@ button {
   align-items: center;
 }
 
-#switch-button {
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 25px;
-  position: relative;
-  display: block;
-  background-color: rgb(233, 228, 228);
-  box-shadow: inset 0px 5px 15px #1dc38c, inset 0px -5px 15px white;
+.light,
+.moon {
   cursor: pointer;
-  border-radius: 200px;
+  font-size: 36px;
 }
 
-#switch-button .fa-sun,
-#switch-button .fa-moon {
-  font-size: 18px;
-}
-
-#switch-button:after {
-  content: "";
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: linear-gradient(180deg, white, var(--primary-green));
-  border-radius: 180px;
-  box-shadow: 0px 5px 10px var(--primary-dark);
+.light {
+  background-color: black;
+  color: white;
 }
 
 /*FOOTER */
@@ -259,7 +246,6 @@ form button {
 form button:hover {
   background-color: #1c846c;
 }
-
 
 /*CARD SHOW*/
 
@@ -413,7 +399,6 @@ form button:hover {
   transform: scale(1.05);
 }
 
-
 .add-card-button {
   background-color: #3cbd95;
   color: white;
@@ -427,11 +412,10 @@ form button:hover {
 }
 
 .add-card-button:hover {
-  background-color: darken(#4CAF50, 10%);
+  background-color: darken(#4caf50, 10%);
   transform: scale(1.05);
   border-color: white;
 }
-
 
 /* Edit Card Form Styling */
 .edit-card-form {
