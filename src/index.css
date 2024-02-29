@@ -117,8 +117,8 @@ button {
   font-size: 36px;
 }
 
-.light {
-  background-color: black;
+.dark-theme .light {
+  background-color: var(--primary-light);
   color: white;
 }
 
@@ -464,18 +464,31 @@ form button:hover {
   background-color: #1c846c;
 }
 
-/*MANAGE CARDS*/
-
-/*.editCards {
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  width: 400px;
-  height: 300px;
-  margin: 15px;
+.deck:hover {
+  background-color: #dcd6d6;
 }
 
-.manage-links {
-  color: var(--primary-green);
-  padding-top: 20px;
-}*/
+.add-deck-button:hover,
+.clickable:hover {
+  color: #dcd6d6;
+}
+
+.moon:hover {
+  color: #31d19c;
+}
+
+.dark-theme .deck:hover {
+  background-color: #dcd6d6;
+}
+
+.moon:hover {
+  color: #31d19c;
+}
+
+.dark-theme .light:hover {
+  color: #dcd6d6;
+}
+
+.dark-theme .deck:hover {
+  background-color: rgb(65, 62, 62);
+}
