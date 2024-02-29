@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 
 const ManageCards = () => {
   const { id: deckId } = useParams();
+  const navigate = useNavigate();
   const location = useLocation();
   const [cards, setCards] = useState([]);
   
@@ -19,6 +20,22 @@ const ManageCards = () => {
     fetchDeck();
   }, [deckId, location.state?.cardAdded]);
 
+  const handleDeleteCard = async (cardId) => {
+    const isConfirmed = window.confirm("Are you sure you want to delete this card?");
+    if (isConfirmed) {
+      // Proceed with deletion
+      const response = await fetch(`${process.env.REACT_APP_URL}/card/${cardId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        // Remove the deleted card from local state to update UI
+        setCards(cards.filter(card => card._id !== cardId));
+      } else {
+        alert("Failed to delete the card.");
+      }
+    }
+  };
+
   return (
     <div className="manage-cards">
       <h2>Manage Cards</h2>
@@ -28,8 +45,8 @@ const ManageCards = () => {
             <p>Question: {card.question}</p>
             <p>Answer: {card.answer}</p>
             <div className="card-action-links">
-              <Link to={`/edit/card/${card.deckId}/${card._id}`} className="edit-link">Edit</Link>
-              <Link to={`/delete/card/${card.deckId}/${card._id}`} className="delete-link">Delete</Link>
+              <Link to={`/edit/card/${deckId}/${card._id}`} className="edit-link">Edit</Link>
+              <button onClick={() => handleDeleteCard(card._id)} className="delete-link">Delete</button>
             </div>
           </div>
         ))
