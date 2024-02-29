@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Card from "../components/Card";
+import backToIndexAudio from "../components/audio/back-to-index.wav";
+import studyModeAudio from "../components/audio/study-mode.wav";
 
 const Deckshow = () => {
   const deck = useLoaderData();
   const navigate = useNavigate();
   const [studyMode, setStudyMode] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+  const playBackToIndexAudio = () => {
+    const audio = new Audio(backToIndexAudio);
+    audio.play();
+  };
+
+  const playStudyModeAudio = () => {
+    const audio = new Audio(studyModeAudio);
+    audio.play();
+  };
 
   // Function to toggle study mode
   const toggleStudyMode = () => {
@@ -34,7 +46,10 @@ const Deckshow = () => {
     <div className="show-container">
       <div className="title-container">
         <h1>{deck.name}</h1>
-        <button onClick={() => navigate(-1)}>Back to Decks</button>
+        <button onClick={() => {
+          navigate(-1);
+          playBackToIndexAudio();
+        }}>Back to Decks</button>
         <button onClick={toggleStudyMode}>
           {studyMode ? "Exit Study Mode" : "Study Mode"}
         </button>

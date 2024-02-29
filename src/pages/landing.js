@@ -1,16 +1,26 @@
 import { useLoaderData, Link } from "react-router-dom";
 import { useState } from "react";
+import editAudio from "../components/audio/edit.wav";
 
 const Landing = () => {
   const decks = useLoaderData();
   const [editMode, setEditMode] = useState(false);
   const [showDropdown, setShowDropdown] = useState(null); // To control which dropdown is visible
 
+  const playEditAudio = () => {
+    const audio = new Audio(editAudio);
+    audio.play();
+  };
+
+
   return (
     <div className="landing-container">
       <div className="title-container">
         <h1 className="page-heading">Flashcard Decks</h1>
-        <button onClick={() => setEditMode(!editMode)}>
+        <button onClick={() => {
+          setEditMode(!editMode);
+          playEditAudio();
+        }}>
           {editMode ? "Exit Edit Mode" : "Edit Mode"}
         </button>
       </div>
