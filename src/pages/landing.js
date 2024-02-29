@@ -48,29 +48,37 @@ const Landing = () => {
       </div>
 
       <div className="decks-container">
-        {decks.map((deck) => (
-          <div key={deck._id} className="deck">
-            <h3>{deck.name}</h3>
-            {editMode && (
-              <>
-                <i className="fa-solid fa-gear" onClick={(e) => handleGearClick(e, deck._id)}></i>
-                {showDropdown === deck._id && (
-                  <div className="dropdown-menu">
-                    <Link to={`/edit/deck/${deck._id}`} className="dropdown-item">
-                      <i className="fa-solid fa-pencil"></i> Edit Deck
-                    </Link>
-                    <button onClick={() => deleteDeck(deck._id)} className="dropdown-item">
-                      <i className="fa-solid fa-trash"></i> Delete Deck
-                    </button>
-                    <Link to={`/deck/${deck._id}/manage-cards`} className="dropdown-item">
-                      Manage Cards
-                    </Link>
-                  </div>
+            {decks.map((deck) => (
+              <div key={deck._id} className="deck" onClick={() => !editMode && navigate(`/deck/${deck._id}`)}>
+                {/* Wrapped deck name with Link for navigation, removed Link wrapping the whole deck */}
+                <h3 className="deck-link" onClick={e => e.stopPropagation()}>{deck.name}</h3>
+                {editMode && (
+                  <>
+                    <i
+                      className="fa-solid fa-gear"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleGearClick(e, deck._id);
+                      }}
+                    ></i>
+                    {showDropdown === deck._id && (
+                      <div className="dropdown-menu">
+                        <Link to={`/edit/deck/${deck._id}`} className="dropdown-item">
+                          <i className="fa-solid fa-pencil fa-icon"></i> Edit Deck
+                        </Link>
+                        <button onClick={() => deleteDeck(deck._id)} className="dropdown-item">
+                          <i className="fa-solid fa-trash fa-icon"></i> Delete Deck
+                        </button>
+                        <Link to={`/deck/${deck._id}/manage-cards`} className="dropdown-item">
+                          <i className="fa-solid fa-th fa-icon"></i> Manage Cards
+                        </Link>
+                      </div>
+                    )}
+                  </>
                 )}
-              </>
-            )}
-          </div>
-        ))}
+              </div>
+            ))}
       </div>
     </div>
   );
