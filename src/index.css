@@ -174,7 +174,6 @@ button {
   cursor: pointer;
   width: 300px;
   height: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 15px;
 }
 
@@ -220,16 +219,16 @@ button {
 .card-front::before {
   content: "";
   position: absolute;
-  transform: translateZ(3rem);
+  transform: translateZ(1px);
 }
 
 .card-question {
-  transform: translateZ(5rem);
+  transform: translateZ(1px);
   order: 2;
 }
 
 .card-answer {
-  transform: translateZ(6rem);
+  transform: translateZ(1px);
 }
 
 .card-back {
