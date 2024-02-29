@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import "../index.css"
 
 const EditCardForm = () => {
     const { deckId, cardId } = useParams();
@@ -44,16 +45,16 @@ const EditCardForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="edit-card-form">
             <h2>Edit Card</h2>
-            <label>
-                Question:
-                <textarea name="question" value={card.question} onChange={handleChange} required />
-            </label>
-            <label>
-                Answer:
-                <textarea name="answer" value={card.answer} onChange={handleChange} required />
-            </label>
+            <div className="form-group">
+                <label htmlFor="question">Question:</label>
+                <textarea id="question" name="question" value={card.question} onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+                <label htmlFor="answer">Answer:</label>
+                <textarea id="answer" name="answer" value={card.answer} onChange={handleChange} required />
+            </div>
             <button type="submit">Save Changes</button>
         </form>
     );
