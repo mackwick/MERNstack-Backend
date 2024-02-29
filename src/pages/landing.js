@@ -13,42 +13,38 @@ const Landing = () => {
         <button onClick={() => setEditMode(!editMode)}>
           {editMode ? "Exit Edit Mode" : "Edit Mode"}
         </button>
+        {editMode && (
+          <Link to="/create/deck" className="add-deck-button">Add New Deck</Link>
+        )}
       </div>
 
       <div className="decks-container">
         {decks.map((deck) => (
           <div key={deck._id} className="deck">
-            {editMode && (
-              <div>
+            <div className="deck-actions">
+              <Link to={`/deck/${deck._id}`} className="deck-link">
+                <h3>{deck.name}</h3>
+              </Link>
+              {editMode && (
                 <i
-                  class="fa-solid fa-gear"
-                  id="gear"
-                  onClick={() =>
-                    setShowDropdown(showDropdown === deck._id ? null : deck._id)
-                  }
+                  className="fa-solid fa-gear"
+                  onClick={() => setShowDropdown(showDropdown === deck._id ? null : deck._id)}
                 ></i>
-
-                {showDropdown === deck._id && (
-                  <div className="dropdown-menu">
-                    <Link to={`/edit/deck/${deck._id}`}>
-                      <i class="fa-solid fa-pencil"></i>
-                    </Link>
-                    <i
-                      class="fa-solid fa-trash"
-                      onClick={() => {
-                        /* handle delete deck */
-                      }}
-                    ></i>
-                    <Link to={`/deck/${deck._id}/manage-cards`}>
-                      Manage Cards
-                    </Link>
-                  </div>
-                )}
+              )}
+            </div>
+            {showDropdown === deck._id && (
+              <div className="dropdown-menu">
+                <Link to={`/edit/deck/${deck._id}`} className="dropdown-item">
+                  <i className="fa-solid fa-pencil"></i> Edit Deck
+                </Link>
+                <button className="dropdown-item" onClick={() => {/* handle delete deck */}}>
+                  <i className="fa-solid fa-trash"></i> Delete Deck
+                </button>
+                <Link to={`/deck/${deck._id}/manage-cards`} className="dropdown-item">
+                  Manage Cards
+                </Link>
               </div>
             )}
-            <Link to={`/deck/${deck._id}`} style={{ textDecoration: "none" }}>
-              <h3>{deck.name}</h3>
-            </Link>
           </div>
         ))}
       </div>
