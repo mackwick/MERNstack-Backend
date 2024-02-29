@@ -24,22 +24,33 @@ const ManageCards = () => {
 
   return (
     <div>
-      <h2>Manage Cards</h2>
-      {cards.length > 0 ? (
-        cards.map((card) => (
-          <div key={card._id}>
-            <p>Question: {card.question}</p>
-            <p>Answer: {card.answer}</p>
-            <Link to={`/edit/card/${card.deckId}/${card._id}`}>Edit</Link>
-            {" | "}
-            <Link to={`/delete/card/${card.deckId}/${card._id}`}>Delete</Link>
-
-            {/* delete/card/:deckId/:cardId */}
-          </div>
-        ))
-      ) : (
-        <p>No cards available. Add some!</p>
-      )}
+      <div className="title-container">
+        <h2>Manage Cards</h2>
+      </div>
+      <div className="cards-container">
+        {cards.length > 0 ? (
+          cards.map((card) => (
+            <div className="deck editCards" key={card._id}>
+              <p>
+                <b>Question: </b>
+                {card.question}
+              </p>
+              <p>
+                <b>Answer:</b> {card.answer}
+              </p>
+              <div className="landing-actions manage-links">
+                <Link to={`/edit/card/${card.deckId}/${card._id}`}>Edit</Link>
+                <pre>{" | "}</pre>
+                <Link to={`/delete/card/${card.deckId}/${card._id}`}>
+                  Delete
+                </Link>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No cards available. Add some!</p>
+        )}
+      </div>
       <Link to={`/create/card/${deckId}`}>Add New Card</Link>
     </div>
   );

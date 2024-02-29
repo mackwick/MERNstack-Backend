@@ -10,11 +10,17 @@ const Landing = () => {
     <div className="landing-container">
       <div className="title-container">
         <h1 className="page-heading">Flashcard Decks</h1>
-        <div>
-          <p onClick={() => setEditMode(!editMode)}>
+        <div className="landing-actions">
+          <div className="clickable" onClick={() => setEditMode(!editMode)}>
             {editMode ? "Exit Edit Mode" : "Edit Mode"}
-          </p>
-          <span> | </span>
+          </div>
+          <div>
+            {" "}
+            <pre>|</pre>
+          </div>
+          <Link to="/create" className="add-deck-button">
+            Add Deck
+          </Link>
         </div>
       </div>
 
