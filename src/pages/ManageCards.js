@@ -28,7 +28,7 @@ const ManageCards = () => {
                         <p>Question: {card.question}</p>
                         <p>Answer: {card.answer}</p>
                                 <div className="card-action-links">
-                                <Link to={``/edit/card/${card.deckId}/${card._id}``} className="edit-link">Edit</Link>
+                                <Link to={`/edit/card/${card.deckId}/${card._id}`} className="edit-link">Edit</Link>
                                 <Link to={`/delete/card/${card.deckId}/${card._id}`} className="delete-link">Delete</Link>
                                 </div>
                     </div>
