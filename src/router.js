@@ -20,6 +20,7 @@ import {
   createCardAction,
   updateCardAction,
   deleteCardAction,
+  addDeckAction,
 } from "./actions";
 
 const router = createBrowserRouter(
@@ -27,8 +28,12 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route index element={<Landing />} loader={deckLoader} />
       <Route path="deck/:id" element={<Deckshow />} loader={cardLoader} />
-      <Route path="create/deck" element={<AddDeckForm />} /> // Add new deck
-      route
+      <Route
+        path="create"
+        element={<AddDeckForm />}
+        action={addDeckAction}
+      />{" "}
+      // Add new deck route
       <Route path="create/card/:deckId" element={<AddCardForm />} />
       <Route path="edit/deck/:id" element={<EditDeckForm />} />
       <Route path="edit/card/:deckId/:cardId" element={<EditCardForm />} />
