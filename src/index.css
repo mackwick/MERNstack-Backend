@@ -182,12 +182,13 @@ Link,
 
 .deck {
   display: flex;
+  flex-direction: column;
   background-color: var(--primary-light);
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
   width: 200px;
-  height: 100px;
+  min-height: 150px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   align-items: center;
@@ -250,10 +251,10 @@ form button:hover {
 /*CARD SHOW*/
 
 .show-container {
-  width: 100%;
-  text-align: center;
-  margin: 0 auto;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .cards-container {
@@ -491,4 +492,60 @@ form button:hover {
 
 .dark-theme .deck:hover {
   background-color: rgb(65, 62, 62);
+}
+
+
+/*EDIT MODE STYLING*/
+
+/*Icons styling*/
+fa-icon {
+  margin-right: 5px;
+  color: var(--primary-dark);
+  margin-bottom: 2px;
+}
+
+/* Dropdown item/button styling */
+.dropdown-item {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  padding: 5px 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  cursor: pointer;
+}
+
+/* Dropdown menu item styling */
+.dropdown-menu .dropdown-item {
+  display: flex;
+  width: 9rem;
+  border: 1px solid rgb(170, 173, 170);
+  align-items: center;
+  padding: 5px 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: rgb(173, 173, 173);
+}
+
+/* Specific icon adjustments */
+.fa-pencil, .fa-trash, .fa-gear {
+  font-size: 1em;
+}
+
+.fa-pencil { color: #eec17f; }
+.fa-trash { color: #f14668; }
+.fa-gear { color: #17a2b8; }
+
+/* Space between icon and its title */
+.dropdown-item i {
+  margin-right: 9px;
 }
