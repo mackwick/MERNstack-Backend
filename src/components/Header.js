@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faLightbulb } from "@fortawesome/free-regular-svg-icons";
+import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 
 // Include theme as a prop here
 const Header = ({ toggleTheme, theme }) => {
@@ -21,7 +21,7 @@ const Header = ({ toggleTheme, theme }) => {
           {theme === "light" ? (
             <FontAwesomeIcon className="moon" icon={faMoon} />
           ) : (
-            <FontAwesomeIcon className="light" icon={faLightbulb} />
+            <FontAwesomeIcon className="sun" icon={faSun} />
           )}
         </label>
       </div>

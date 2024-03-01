@@ -111,13 +111,13 @@ button {
   align-items: center;
 }
 
-.light,
+.sun,
 .moon {
   cursor: pointer;
   font-size: 36px;
 }
 
-.dark-theme .light {
+.dark-theme .sun {
   background-color: var(--primary-light);
   color: white;
 }
@@ -291,7 +291,6 @@ form button:hover {
   border-radius: 8px;
   background-color: var(--primary-light);
   color: var(--primary-dark);
-  
 }
 
 .flashcard:hover .card-content {
@@ -334,18 +333,15 @@ form button:hover {
 
 .card-answer {
   transform: translateZ(1px);
-  
-  
 }
 
 .card-back {
   transform: rotateY(0.5turn);
-  font-size: .8em;
-  padding: 14px
+  font-size: 0.8em;
+  padding: 14px;
   /* overflow: hidden potential fix for overflow of back of card but does not scroll*/
   /* overflow: hidden;
   overflow-y: scroll; */
-  
 }
 
 /* Manage Cards Styling */
@@ -496,14 +492,13 @@ form button:hover {
   color: #31d19c;
 }
 
-.dark-theme .light:hover {
+.dark-theme .sun:hover {
   color: #dcd6d6;
 }
 
 .dark-theme .deck:hover {
   background-color: rgb(65, 62, 62);
 }
-
 
 /*EDIT MODE STYLING*/
 
@@ -547,13 +542,21 @@ fa-icon {
 }
 
 /* Specific icon adjustments */
-.fa-pencil, .fa-trash, .fa-gear {
+.fa-pencil,
+.fa-trash,
+.fa-gear {
   font-size: 1em;
 }
 
-.fa-pencil { color: #eec17f; }
-.fa-trash { color: #f14668; }
-.fa-gear { color: #17a2b8; }
+.fa-pencil {
+  color: #eec17f;
+}
+.fa-trash {
+  color: #f14668;
+}
+.fa-gear {
+  color: #17a2b8;
+}
 
 /* Space between icon and its title */
 .dropdown-item i {
