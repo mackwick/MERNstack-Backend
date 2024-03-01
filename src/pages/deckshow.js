@@ -22,13 +22,20 @@ const Deckshow = () => {
 
   // Navigation functions
   const showPreviousCard = () => {
-    setCurrentCardIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    // setCurrentCardIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    let previous = currentCardIndex - 1
+    if(currentCardIndex === 0) previous = deck.cards.length - 1
+    setCurrentCardIndex(previous)
+
   };
 
   const showNextCard = () => {
-    setCurrentCardIndex((prevIndex) =>
-      Math.min(prevIndex + 1, deck.cards.length - 1)
-    );
+    // setCurrentCardIndex((prevIndex) =>
+    //   Math.min(prevIndex + 1, deck.cards.length - 1)
+    // );
+    let next = currentCardIndex + 1
+    if(currentCardIndex === deck.cards.length - 1) next = 0
+    setCurrentCardIndex(next)
   };
 
   const showRandomCard = () => {

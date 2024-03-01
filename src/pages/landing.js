@@ -51,7 +51,8 @@ const Landing = () => {
             {decks.map((deck) => (
               <div key={deck._id} className="deck" onClick={() => !editMode && navigate(`/deck/${deck._id}`)}>
                 {/* Wrapped deck name with Link for navigation, removed Link wrapping the whole deck */}
-                <h3 className="deck-link" onClick={e => e.stopPropagation()}>{deck.name}</h3>
+                {/* Made deck name clickable if not in edit mode but not clickable in edit mode */}
+                <h3 className="deck-link" onClick={e => editMode ? e.stopPropagation() : navigate(`/deck/${deck._id}`)}>{deck.name}</h3>
                 {editMode && (
                   <>
                     <i
