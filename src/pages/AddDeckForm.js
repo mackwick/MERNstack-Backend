@@ -51,10 +51,7 @@ const AddDeckForm = () => {
                 Description:
                 <textarea name="description" value={deck.description} onChange={handleChange} />
             </label>
-            <label>
-                Private:
-                <input type="checkbox" name="isPrivate" checked={deck.isPrivate} onChange={handleChange} />
-            </label>
+            
             <button type="submit">Create Deck</button>
         </form>
     );
