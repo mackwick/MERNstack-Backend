@@ -15,6 +15,14 @@ Study Buddy is a web application that allows users to create decks of flashcards
 - **Deployed: https://deluxe-trifle-0b2556.netlify.app/**
 - **Trello Board: https://trello.com/b/RYq8mpis/flash-cards-project**
 
+## Technologies
+
+- React
+- react-dom
+- JSX
+- FortAwesome (icons)
+- react-router-dom
+
 ## React Routes
 
 1. "/" - App
@@ -36,8 +44,3 @@ Study Buddy is a web application that allows users to create decks of flashcards
 ## Wireframes
 
 ![Study Buddy Wireframes](https://i.imgur.com/5YUMwKG.jpeg)
-
-## Dependencies
-
-- FortAwesome (icons)
-- react-router-dom
