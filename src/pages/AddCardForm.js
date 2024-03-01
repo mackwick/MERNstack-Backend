@@ -23,6 +23,8 @@ const AddCardForm = () => {
             if (response.ok) {
                 // Reset the card state to clear the form for the next card
                 setCard({ question: '', answer: '' });
+                // Display an alert confirming the card has been added
+                alert("Card added successfully!");
             } else {
                 // Handle server errors or invalid responses
                 alert("An error occurred. Please try again.");
