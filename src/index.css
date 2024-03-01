@@ -194,6 +194,7 @@ Link,
   align-items: center;
   justify-content: center;
   color: var(--primary-dark);
+  cursor: pointer;
 }
 
 /* Edit Deck Form Styling */
@@ -290,6 +291,7 @@ form button:hover {
   border-radius: 8px;
   background-color: var(--primary-light);
   color: var(--primary-dark);
+  
 }
 
 .flashcard:hover .card-content {
@@ -332,10 +334,18 @@ form button:hover {
 
 .card-answer {
   transform: translateZ(1px);
+  
+  
 }
 
 .card-back {
   transform: rotateY(0.5turn);
+  font-size: .8em;
+  padding: 14px
+  /* overflow: hidden potential fix for overflow of back of card but does not scroll*/
+  /* overflow: hidden;
+  overflow-y: scroll; */
+  
 }
 
 /* Manage Cards Styling */
