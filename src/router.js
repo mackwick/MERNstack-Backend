@@ -44,7 +44,7 @@ const router = createBrowserRouter(
       />
       <Route path="edit/card/:deckId/:cardId" element={<EditCardForm />} />
       <Route path="update/card/:deckId/:cardId" action={updateCardAction} />
-      <Route path="delete/card/:deckId/:cardId" action={deleteCardAction} />
+      <Route path="delete/card/:id" action={deleteCardAction} />
     </Route>
   )
 );
